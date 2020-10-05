@@ -1,16 +1,19 @@
 package taskr;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Taskr {
-    ArrayList<Task> tasks = new ArrayList<>();
+    private TaskrDb taskrDb;
 
     public void addTask(Task task) {
-        tasks.add(task);
+        taskrDb.addTask(task);
     }
 
     public List<Task> getTasks() {
-        return tasks;
+        return taskrDb.getTasks();
+    }
+
+    public void setDb(TaskrDb taskrDb) {
+        this.taskrDb = taskrDb;
     }
 }

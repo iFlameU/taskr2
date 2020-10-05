@@ -2,8 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import taskr.Task;
 import taskr.Taskr;
-
-import java.util.List;
+import taskr.TaskrDb;
 
 public class TaskrTest {
 
@@ -12,10 +11,14 @@ public class TaskrTest {
     @Test
     public void test() {
         Taskr taskr = new Taskr();
+        TaskrDb taskrDb = new TaskrDb();
+        taskr.setDb(taskrDb);
         Task task = new Task();
         task.setName(TASK_NAME);
         taskr.addTask(task);
-        List<Task> tasks = taskr.getTasks();
-        Assertions.assertTrue(tasks.stream().anyMatch(t -> TASK_NAME.equals(t.getName())));
+        Assertions.assertTrue(taskr.getTasks().stream().anyMatch(t -> TASK_NAME.equals(t.getName())));
+        Taskr taskr1 = new Taskr();
+        taskr1.setDb(taskrDb);
+        Assertions.assertTrue(taskr1.getTasks().stream().anyMatch(t -> TASK_NAME.equals(t.getName())));
     }
 }
