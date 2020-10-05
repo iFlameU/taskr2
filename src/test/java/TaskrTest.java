@@ -1,9 +1,9 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import taskr.Taskr;
 
 public class TaskrTest {
     @Test
     public void test() {
-        Assertions.assertTrue(1 > 0);
+        Taskr task = new Taskr();
     }
 }
