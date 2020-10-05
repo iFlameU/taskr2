@@ -7,5 +7,6 @@ public class TaskrTest {
     public void test() {
         Taskr taskr = new Taskr();
         Task task = new Task();
+        taskr.addTask(task);
     }
 }
