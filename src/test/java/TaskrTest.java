@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 import taskr.Task;
 import taskr.Taskr;
 
+import java.util.List;
+
 public class TaskrTest {
     @Test
     public void test() {
@@ -9,5 +11,6 @@ public class TaskrTest {
         Task task = new Task();
         task.setName("Great task");
         taskr.addTask(task);
+        List<Task> tasks = taskr.getTasks();
     }
 }
