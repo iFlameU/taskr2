@@ -1,5 +1,6 @@
 package taskr;
 
+import javax.inject.Inject;
 import java.util.List;
 
 public class Taskr {
@@ -13,6 +14,7 @@ public class Taskr {
         return taskrDb.getTasks();
     }
 
+    @Inject
     public void setDb(TaskrDb taskrDb) {
         this.taskrDb = taskrDb;
     }

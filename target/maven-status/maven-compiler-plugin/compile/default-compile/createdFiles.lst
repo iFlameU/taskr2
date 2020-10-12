@@ -1,3 +1,5 @@
 taskr\Task.class
+TaskrApi.class
+taskr\TaskrController.class
 taskr\TaskrDb.class
 taskr\Taskr.class
