@@ -2,6 +2,7 @@ package taskr;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import java.util.List;
 
@@ -13,9 +14,11 @@ public class TaskrController {
 
     @GET
     public List<Task> get() {
-        Task task = new Task();
-        task.setName("TASK_NAME");
-        taskr.addTask(task);
         return taskr.getTasks();
+    }
+
+    @POST
+    public void post(Task newTask) {
+        taskr.addTask(newTask);
     }
 }

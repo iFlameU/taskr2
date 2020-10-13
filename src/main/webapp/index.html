@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Taskr</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body onload="main()">
-<div class="tasks-container"></div>
+<div id="add-task-container">
+    <label for="task-name">Name: </label>
+    <input type="text" id="task-name">
+    <button onclick="addTask()">Add task</button>
+</div>
+<div id="tasks-container"></div>
 
-<script src="scripts/main.js"></script>
-<script src="scripts/tasks/get.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,8 +1,10 @@
 package taskr;
 
+import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
 
+@Singleton
 public class TaskrDb {
     ArrayList<Task> tasks = new ArrayList<>();
 
