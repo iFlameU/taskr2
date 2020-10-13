@@ -7,6 +7,7 @@ import taskr.TaskrDb;
 public class TaskrTest {
 
     public static final String TASK_NAME = "Great task";
+    public static final String TASK_NAME_2 = "Yet another great task";
 
     @Test
     public void test() {
@@ -20,5 +21,9 @@ public class TaskrTest {
         Taskr taskr1 = new Taskr();
         taskr1.setDb(taskrDb);
         Assertions.assertTrue(taskr1.getTasks().stream().anyMatch(t -> TASK_NAME.equals(t.getName())));
+        Task taskToChange = taskr.getTasks().get(0);
+        taskToChange.setName(TASK_NAME_2);
+        taskr.changeTask(taskToChange);
+        Assertions.assertEquals(TASK_NAME_2, taskr.getTasks().get(0).getName());
     }
 }

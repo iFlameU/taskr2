@@ -14,6 +14,10 @@ public class Taskr {
         return taskrDb.getTasks();
     }
 
+    public void changeTask(Task task) {
+        taskrDb.changeTask(task);
+    }
+
     @Inject
     public void setDb(TaskrDb taskrDb) {
         this.taskrDb = taskrDb;

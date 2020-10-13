@@ -6,13 +6,23 @@ import java.util.List;
 
 @Singleton
 public class TaskrDb {
+    private static long nextId = 0;
     ArrayList<Task> tasks = new ArrayList<>();
 
     public void addTask(Task task) {
+        task.setId(nextId++);
         tasks.add(task);
     }
 
     public List<Task> getTasks() {
         return tasks;
+    }
+
+    public void changeTask(Task newTask) {
+        tasks.stream().filter(t -> t.getId() == newTask.getId()).forEach(oldTask -> copyData(oldTask, newTask));
+    }
+
+    private void copyData(Task oldTask, Task newTask) {
+        oldTask.setName(newTask.getName());
     }
 }
