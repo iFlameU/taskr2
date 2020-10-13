@@ -3,7 +3,7 @@ package taskr;
 import javax.inject.Inject;
 import java.util.List;
 
-public class Taskr {
+public class TaskrService {
     private TaskrDb taskrDb;
 
     @Inject

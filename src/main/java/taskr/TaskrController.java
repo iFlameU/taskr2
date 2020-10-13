@@ -8,26 +8,26 @@ import java.util.List;
 public class TaskrController {
 
     @Inject
-    private Taskr taskr;
+    private TaskrService taskrService;
 
     @GET
     public List<Task> get() {
-        return taskr.getTasks();
+        return taskrService.getTasks();
     }
 
     @POST
     public void post(Task newTask) {
-        taskr.addTask(newTask);
+        taskrService.addTask(newTask);
     }
 
     @PUT
     public void put(Task task) {
-        taskr.changeTask(task);
+        taskrService.changeTask(task);
     }
 
     @DELETE
     @Path("{id}")
     public void delete(@PathParam("id") long id) {
-        taskr.delete(id);
+        taskrService.delete(id);
     }
 }
