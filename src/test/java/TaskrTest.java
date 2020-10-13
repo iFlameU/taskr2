@@ -25,5 +25,7 @@ public class TaskrTest {
         taskToChange.setName(TASK_NAME_2);
         taskr.changeTask(taskToChange);
         Assertions.assertEquals(TASK_NAME_2, taskr.getTasks().get(0).getName());
+        taskr.delete(taskToChange.getId());
+        Assertions.assertTrue(taskr.getTasks().stream().noneMatch(t -> t.getId() == taskToChange.getId()));
     }
 }

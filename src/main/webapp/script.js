@@ -22,8 +22,11 @@ function getTasks() {
 }
 
 function createTaskComponent(task) {
-    return "<div id='task-" + task.id + "'><span>" + task.name +"</span>" +
-        "<button onclick='toggleChangeTaskOn(" + task.id + ")'>Change</button></div>" +
+    return "<div id='task-" + task.id + "'>" +
+        "<span>" + task.name +"</span>" +
+        "<button onclick='toggleChangeTaskOn(" + task.id + ")'>Change</button>" +
+        "<button onclick='deleteTask(" + task.id + ")'>Delete</button>" +
+        "</div>" +
         "<div id='change-task-" + task.id + "' hidden>" +
         "<input type='text' id='change-task-name-" + task.id + "' value='" + task.name + "'>" +
         "<button onclick='changeTask(" + task.id + ")'>Change</button>" +
@@ -76,4 +79,18 @@ function changeTask(id) {
     }
 
     toggleChangeTaskOff(id);
+}
+
+function deleteTask(id) {
+    const Http = new XMLHttpRequest();
+    const url='api/tasks/' + id;
+    Http.open("DELETE", url, true);
+    Http.send();
+
+    Http.onreadystatechange = () => {
+        console.log(Http.readyState);
+        if(Http.readyState == 4) {
+            getTasks();
+        }
+    }
 }

@@ -1,10 +1,7 @@
 package taskr;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import java.util.List;
 
 @Path("tasks")
@@ -26,5 +23,11 @@ public class TaskrController {
     @PUT
     public void put(Task task) {
         taskr.changeTask(task);
+    }
+
+    @DELETE
+    @Path("{id}")
+    public void delete(@PathParam("id") long id) {
+        taskr.delete(id);
     }
 }

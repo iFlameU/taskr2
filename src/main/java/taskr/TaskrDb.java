@@ -3,6 +3,7 @@ package taskr;
 import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Singleton
 public class TaskrDb {
@@ -24,5 +25,9 @@ public class TaskrDb {
 
     private void copyData(Task oldTask, Task newTask) {
         oldTask.setName(newTask.getName());
+    }
+
+    public synchronized void delete(long id) {
+        tasks.remove(tasks.stream().filter(t -> t.getId() == id).collect(Collectors.toList()).get(0));
     }
 }

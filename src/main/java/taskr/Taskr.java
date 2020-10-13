@@ -6,6 +6,11 @@ import java.util.List;
 public class Taskr {
     private TaskrDb taskrDb;
 
+    @Inject
+    public void setDb(TaskrDb taskrDb) {
+        this.taskrDb = taskrDb;
+    }
+
     public void addTask(Task task) {
         taskrDb.addTask(task);
     }
@@ -18,8 +23,7 @@ public class Taskr {
         taskrDb.changeTask(task);
     }
 
-    @Inject
-    public void setDb(TaskrDb taskrDb) {
-        this.taskrDb = taskrDb;
+    public void delete(long id) {
+        taskrDb.delete(id);
     }
 }
