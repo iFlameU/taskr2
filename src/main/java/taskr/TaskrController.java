@@ -5,7 +5,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import java.util.List;
 
-@Path("taskr")
+@Path("tasks")
 public class TaskrController {
 
     @Inject
@@ -13,6 +13,9 @@ public class TaskrController {
 
     @GET
     public List<Task> get() {
+        Task task = new Task();
+        task.setName("TASK_NAME");
+        taskr.addTask(task);
         return taskr.getTasks();
     }
 }
