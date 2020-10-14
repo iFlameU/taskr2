@@ -23,7 +23,7 @@ public class TaskDao {
     }
 
     public void changeTask(Task newTask) {
-        tasks.stream().filter(t -> t.getId() == newTask.getId()).forEach(oldTask -> copyData(oldTask, newTask));
+        tasks.stream().filter(task -> task.getId() == newTask.getId()).forEach(oldTask -> copyData(oldTask, newTask));
     }
 
     private void copyData(Task oldTask, Task newTask) {
@@ -31,6 +31,6 @@ public class TaskDao {
     }
 
     public synchronized void delete(long id) {
-        tasks.remove(tasks.stream().filter(t -> t.getId() == id).collect(Collectors.toList()).get(0));
+        tasks.remove(tasks.stream().filter(task -> task.getId() == id).collect(Collectors.toList()).get(0));
     }
 }
