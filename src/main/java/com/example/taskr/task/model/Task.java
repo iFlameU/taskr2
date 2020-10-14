@@ -1,4 +1,4 @@
-package taskr;
+package com.example.taskr.task.model;
 
 public class Task {
     private long id;

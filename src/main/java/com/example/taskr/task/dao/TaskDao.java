@@ -1,4 +1,6 @@
-package taskr;
+package com.example.taskr.task.dao;
+
+import com.example.taskr.task.model.Task;
 
 import javax.inject.Singleton;
 import java.util.ArrayList;
@@ -6,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Singleton
-public class TaskrDb {
+public class TaskDao {
     private static long nextId = 0;
     ArrayList<Task> tasks = new ArrayList<>();
 
