@@ -12,9 +12,10 @@ public class TaskDao {
     private static long nextId = 0;
     ArrayList<Task> tasks = new ArrayList<>();
 
-    public void addTask(Task task) {
+    public Task addTask(Task task) {
         task.setId(nextId++);
         tasks.add(task);
+        return task;
     }
 
     public List<Task> getTasks() {

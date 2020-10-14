@@ -14,8 +14,8 @@ public class TaskService {
         this.taskDao = taskDao;
     }
 
-    public void addTask(Task task) {
-        taskDao.addTask(task);
+    public Task addTask(Task task) {
+        return taskDao.addTask(task);
     }
 
     public List<Task> getTasks() {
