@@ -1,5 +1,6 @@
 package com.example.taskr.task.service;
 
+import com.example.taskr.task.dao.DaoUtil;
 import com.example.taskr.task.dao.TaskDao;
 import com.example.taskr.task.model.Task;
 import org.junit.jupiter.api.Assertions;
@@ -16,7 +17,9 @@ public class TaskServiceTest {
     @BeforeEach
     public void setUp() {
         taskService = new TaskService();
+        DaoUtil daoUtil = new DaoUtil();
         taskDao = new TaskDao();
+        taskDao.setDaoUtil(daoUtil);
         taskService.setDb(taskDao);
     }
 
